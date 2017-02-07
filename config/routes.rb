@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
+  
   root to: "pages#home"
 
 
@@ -10,6 +9,6 @@ Rails.application.routes.draw do
              :controllers => { :omniauth_callbacks => "omniauth_callbacks",
                                :registrations => 'registrations'}
 
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
 
 end
