@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LINE</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <header>
+    <%= render 'shared/navbar' %>
+    <%= render partial: "shared/flash_messages", flash: flash %>
+  </header>
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

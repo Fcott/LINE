@@ -1,0 +1,109 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// general
+body {
+  color: #565a5c;
+  background-color: #F8F8F8;
+}
+
+.pic-small {
+  width: 24px;
+}
+
+.pic-middle {
+  width: 56px;
+}
+
+.container {
+	width: 80%;
+}
+
+.center {
+  text-align: center;
+}
+
+// Form
+.btn-primary.btn {
+  border-radius: 2px;
+  font-weight: bold;
+  padding: 10px 25px 10px 25px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  border-radius: 2px;
+  height: 4rem;
+}
+
+// navbar
+
+.navbar-default {
+  background-color: #FDFDFD;
+}
+.navbar {
+  padding-top: 15px;
+  margin: 0;
+}
+
+.navbar-brand {
+  font-size: 2em;
+  padding: 0;
+  height: auto;
+}
+.navbar-nav li {
+  margin-right: 20px;
+  margin-bottom: 10px
+}
+
+.navbar-nav > li > a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.nav > li > a {
+  padding: 0px;
+}
+
+.dropdown {
+  margin: 0;
+}
+
+.fa-envelope-o:before {
+  margin-right: 5px;
+}
+
+// user page
+
+.user_top {
+  margin: 30px 10px;
+}
+.user_name {
+  font-size: 24px;
+  padding-left: 15px;
+}
+
+// For mobile
+
+@media (max-width: 767px){
+  .navbar-toggle {
+    margin: 0 0 14px 0;
+    padding: 6px 8px;
+  }
+  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+      padding: 0px;
+  }
+
+  .user_top {
+    margin: 15px 7px;
+  }
+  .user_name {
+    font-size: 16px;
+    padding-left: 10px;
+  }
+}
