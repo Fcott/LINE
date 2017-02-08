@@ -1,0 +1,16 @@
+<% unless room.user_rooms.map(&:messages).blank? %>
+  <%= link_to room_path(room) do %>
+    <div class="conversation table_cell">
+      <div class="avatar inline-block">
+        <%= image_tag user_picture(room.image), class: "img-circle pic-middle" %>
+      </div>
+      <div class="message_info inline-block">
+        <span class="username"><%= room.name %></span>
+        <span class="timestamp "><%= room.user_rooms.map(&:messages).last.sent_time %></span>
+        <div class="content">
+          <%= room.user_rooms.map(&:messages).last.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
