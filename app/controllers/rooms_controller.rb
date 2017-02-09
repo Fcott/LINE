@@ -8,6 +8,14 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @user_rooms = @room.user_rooms
-    @messages = Messages.where(user_room: @user_rooms)
+  end
+
+  def create
+
+  end
+
+  private
+  def room_params
+    params.require(:room).permit(:name)
   end
 end
