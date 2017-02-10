@@ -1,1 +1,14 @@
-<h3>Room#show</h3>
+<% if @room.direct? %>
+  <h2><%= @user_names %></h2>
+  <% unless @messages.blank? %>
+    <%= render @messages %>
+  <% end %>
+
+<% else %>
+<h2>
+  <%= "#{@room.name} (#{@room.users.length})" %>
+  <% @user10.each do |user| %>
+    <%= image_tag user_picture(user), class: "img-circle pic-small" %>
+  <% end %>
+</h2>
+<% end %>

@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   scope :direct_messages, -> { where(direct: true)  }
+  scope :groups, -> { where(direct: false)  }
 
   def self.direct_message_for(users)
     user_ids = users.map(&:id).sort

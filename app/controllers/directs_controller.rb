@@ -6,5 +6,7 @@ class DirectsController < ApplicationController
     users = [current_user, @user]
     @room = Room.direct_message_for(users)
     @messages = @room.messages
+    @user_names = @room.users.map(&:username).join(", ")
+    render 'rooms/show' 
   end
 end

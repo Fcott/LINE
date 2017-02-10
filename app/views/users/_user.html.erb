@@ -1,11 +1,7 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 col-sm-12">
-    <div class="user_top">
-      <span class="avatar inline_block">
-        <%= image_tag user_picture(user), class: "img-circle pic-middle" %>
-        <strong class="user_name"><%= user.username%></strong>
-        <%= link_to "Chat", direct_path(user.id) %>
-      </span>
-    </div>
-  </div>
+<div class="user_top">
+  <span class="avatar inline_block">
+    <%= image_tag user_picture(user), class: "img-circle pic-middle" %>
+    <strong class="user_name"><%= user.username%></strong>
+    <%= link_to "Chat", direct_path(user.id) %>
+  </span>
 </div>

@@ -6,5 +6,29 @@
         <strong class="user_name"><%= @user.username%></strong>
       </div>
     </div>
+
+    <div class="">
+      <span><i class="fa fa-users" aria-hidden="true"></i><%= link_to "Create Group", new_room_path %></span>
+      <h3>Your Groups</h3>
+      <% unless @rooms.blank? %>
+        <% @rooms.each do |room| %>
+          <div class="user_top">
+            <%= link_to room do %>
+              <span class="avatar inline_block">
+                <%= image_tag room.image, class: "img-circle pic-middle" %>
+                <strong class="user_name"><%= "#{room.name} (#{room.users.length})" %></strong>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="">
+      <h3>Friends</h3>
+      <% unless @users.blank? %>
+        <%= render @users %>
+      <% end %>
+    </div>
   </div>
 </div>
