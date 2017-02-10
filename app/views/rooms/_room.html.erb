@@ -1,8 +1,8 @@
-<% unless room.user_rooms.map(&:messages).blank? %>
+<% unless room.messages.blank? %>
   <%= link_to room_path(room) do %>
     <div class="conversation table_cell">
       <div class="avatar inline-block">
-        <%= image_tag user_picture(room.image), class: "img-circle pic-middle" %>
+        <%= image_tag room.image, class: "img-circle pic-middle" %>
       </div>
       <div class="message_info inline-block">
         <span class="username"><%= room.name %></span>

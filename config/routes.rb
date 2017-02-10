@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'directs/show'
+
   get 'messages/index'
 
   root to: "pages#home"
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :rooms, only: [:index, :show, :create]
+
+  resources :directs
 end

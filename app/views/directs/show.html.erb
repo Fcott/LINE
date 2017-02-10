@@ -1,0 +1,4 @@
+<h1>With <%= @user.username %></h1>
+<% unless @messages.blank? %>
+  <%= render @messages %>
+<% end %>
