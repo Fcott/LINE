@@ -10,7 +10,9 @@ Rails.application.routes.draw do
                                :registrations => 'registrations'}
 
   resources :users, only: [:index, :show]
-  resources :rooms
+  resources :rooms do
+    resource :user_rooms, only: [:create, :destroy]
+  end
 
   resources :directs
 end

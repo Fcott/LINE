@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_room, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
 
   def index
     @rooms = current_user.rooms
@@ -45,6 +46,10 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name, :image)
+  end
+
+  def correct_user
+    redirect_to current_user unless current_user.user_rooms.find_by(room_id: @room.id)
   end
 
 end

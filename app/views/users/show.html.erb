@@ -17,6 +17,9 @@
               <span class="avatar inline_block">
                 <%= image_tag room.image, class: "img-circle pic-middle" %>
                 <strong class="user_name"><%= "#{room.name} (#{room.users.length})" %></strong>
+                <% unless current_user.user_rooms.find_by(room_id: room.id) %>
+                  <%= link_to "Join", room_user_rooms_path(room), method: :post %>
+                <% end %>
               </span>
             <% end %>
           </div>
