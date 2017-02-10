@@ -12,7 +12,8 @@ class RoomsController < ApplicationController
 
   def show
     @user10 = @room.users.first(10)
-    @user_names = @room.users.map(&:username).join(", ")
+    members = @room.users.reject { |e| e == current_user  }
+    @user_names = members.map(&:username).join(", ")
     @messages = @room.messages
   end
 
