@@ -1,7 +1,2 @@
 <h3>Create New Group</h3>
-<%= form_for @room do |f| %>
-  <%= render "shared/errors", object: f.object %>
-  <h4>Group Name</h4>
-  <%= f.text_field :name, class: "form-control" %>
-  <%= f.submit "Create" %>
-<% end %>
+<%= render 'form', room: @room , button: "Create"%>
