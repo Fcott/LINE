@@ -5,11 +5,8 @@ class MessagesController < ApplicationController
   def create
     message = @room.messages.new(message_params)
     message.user = current_user
-    if message.save
-      redirect_to @room
-    else
-      redirect_to @room, danger: "Couldn't send"
-    end
+    message.save
+    MessageRelayJob.perform_later(message)
   end
 
   private
