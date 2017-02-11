@@ -1,5 +1,5 @@
 <% if @room.direct? %>
-  <h2><%= @user_names %></h2>
+  <h2><%= @room.members_except(current_user) %></h2>
 <% else %>
 <h2>
   <%= "#{@room.name} (#{@room.users.length})" %>
@@ -11,6 +11,17 @@
 <%= link_to "Leave", room_user_rooms_path(@room), method: :delete %>
 <% end %>
 
-<% unless @messages.blank? %>
-  <%= render @messages %>
-<% end %>
+<div class="">
+  <% unless @messages.blank? %>
+    <%= render @messages %>
+  <% end %>
+</div>
+
+<br>
+<br>
+<div class="">
+  <%= form_for [@room, Message.new] do |f| %>
+    <%= f.text_area :content, class: "form-control text_area", autofocus: true %>
+    <%= f.submit "Send message" %>
+  <% end %>
+</div>

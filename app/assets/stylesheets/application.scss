@@ -14,7 +14,7 @@ body {
 }
 
 .pic-middle {
-  width: 56px;
+  width: 40px;
 }
 
 .container {
@@ -26,6 +26,9 @@ body {
 }
 .inline_block {
   display: inline-block;
+}
+.table_cell {
+  display: table-cell;
 }
 
 // Form
@@ -89,6 +92,63 @@ body {
 .user_name {
   font-size: 24px;
   padding-left: 15px;
+}
+
+// Rooms
+
+.room{
+  .avatar {
+
+  }
+  .message_info{
+    padding: 0 15px 0;
+    .username {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    .timestamp {
+      font-size: 0.8em;
+      color: rgba(0,0,0,.44);
+    }
+    .content {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      word-wrap: break-word;
+    }
+  }
+}
+
+
+
+// message
+.text_area {
+  width: 100%;
+  max-width: 100%;
+}
+
+.message_base {
+  margin: 12px 0;
+  .avatar {
+
+  }
+  .message_info {
+    padding: 0 15px 0;
+    .username {
+
+      color: rgba(0,0,0,.44);
+    }
+    .timestamp {
+      font-size: 0.8em;
+      color: rgba(0,0,0,.44);
+    }
+    .message_content {
+      font-size: 1.4em;
+      max-width: inherit;
+      display: block;
+      word-wrap: break-word;
+    }
+  }
 }
 
 // For mobile

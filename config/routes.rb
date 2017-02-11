@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :rooms do
     resource :user_rooms, only: [:create, :destroy]
+    resources :messages
   end
 
   resources :directs

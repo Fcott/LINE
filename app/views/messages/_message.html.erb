@@ -1,0 +1,13 @@
+
+    <div class="message_base">
+        <div class="avatar inline-block table_cell">
+          <%= image_tag user_picture(message.user), class: "img-circle pic-middle" %>
+        </div>
+        <div class="message_info inline-block table_cell">
+          <div class="message_content">
+            <%= message.content %>
+          </div>
+          <span class="username"><%= message.user.username %></span>
+          <span class="timestamp"><%= message.sent_time %></span>
+        </div>
+    </div>

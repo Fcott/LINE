@@ -1,15 +1,17 @@
 <% unless room.messages.blank? %>
   <%= link_to room_path(room) do %>
-    <div class="conversation table_cell">
-      <div class="avatar inline-block">
+    <div class="room ">
+      <span class="avatar inline-block table_cell">
         <%= image_tag room.image, class: "img-circle pic-middle" %>
-      </div>
-      <div class="message_info inline-block">
-        <span class="username"><%= room.name %></span>
-        <span class="timestamp "><%= room.messages.last.sent_time %></span>
-        <div class="content">
-          <%= room.messages.last.content %>
-        </div>
+      </span>
+      <div class="message_info inline-block table_cell">
+        <% if room.direct? %>
+          <span class="username"><%= room.members_except(current_user) %></span>
+        <% else %>
+          <span class="username"><%= room.name %></span>
+        <% end %>
+        <span class="timestamp "><%= room.messages.last.sent_time %></span><br>
+        <span class="content"><%= room.messages.last.content %></span>
       </div>
     </div>
   <% end %>

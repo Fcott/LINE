@@ -21,6 +21,11 @@ class Room < ApplicationRecord
     end
   end
 
+  def members_except(user)
+    members = self.users.reject { |e| e == user  }
+    @user_names = members.map(&:username).join(", ")
+  end
+
 
   private
   def set_default
