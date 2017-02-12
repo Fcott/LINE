@@ -11,7 +11,7 @@
 <%= link_to "Leave", room_user_rooms_path(@room), method: :delete %>
 <% end %>
 
-<div class="">
+<div data-behavior="messages" data-room-id="<%= @room.id %>">
   <% unless @messages.blank? %>
     <%= render @messages %>
   <% end %>
@@ -19,7 +19,7 @@
 
 <br>
 <br>
-<div class="">
+<div data-behavior="message-form" data-room-id="<%= @room.id %>">
   <%= form_for [@room, Message.new] do |f| %>
     <%= f.text_area :content, class: "form-control text_area", autofocus: true %>
     <%= f.submit "Send message" %>
