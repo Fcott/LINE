@@ -21,7 +21,6 @@
 <br>
 <div data-behavior="message-form" data-room-id="<%= @room.id %>">
   <%= form_for [@room, Message.new] do |f| %>
-    <%= f.text_area :content, class: "form-control text_area", autofocus: true %>
-    <%= f.submit "Send message" %>
+    <%= f.text_area :content, rows: 1, class: "form-control text_area", autofocus: true %>
   <% end %>
 </div>
