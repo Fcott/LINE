@@ -7,8 +7,10 @@
     <%= image_tag user_picture(user), class: "img-circle pic-small" %>
   <% end %>
 </h2>
-<%= link_to "Edit", edit_room_path(@room)  %> |
-<%= link_to "Leave", room_user_rooms_path(@room), method: :delete %>
+<%= link_to "Back", current_user %> |
+<%= link_to "Edit", edit_room_path(@room) %> |
+<%= link_to "Invite", room_invitation_path(@room) %> |
+<%= link_to "Leave", room_user_rooms_path(@room), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
 <div data-behavior="messages" data-room-id="<%= @room.id %>">

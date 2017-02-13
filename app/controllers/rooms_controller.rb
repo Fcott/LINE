@@ -37,6 +37,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def invitation
+    @room = Room.find(params[:room_id])
+    users = @room.users
+    @users = User.all.reject{|e| users.include?(e)}
+  end
+
   private
   def set_room
     @room = Room.find(params[:id])

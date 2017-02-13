@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   resources :rooms do
     resource :user_rooms, only: [:create, :destroy]
     resources :messages
+    get '/invitation' => 'rooms#invitation'
+    resource :invitations, only: [:create, :destroy]
   end
 
   resources :directs
+
 end

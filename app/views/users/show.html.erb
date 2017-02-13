@@ -12,17 +12,19 @@
       <h3>Your Groups</h3>
       <% unless @rooms.blank? %>
         <% @rooms.each do |room| %>
-          <div class="user_top">
-            <%= link_to room do %>
-              <span class="avatar inline_block">
-                <%= image_tag room.image, class: "img-circle pic-middle" %>
+          <% if room.invited?(current_user) || current_user.member_of?(room) %>
+            <div class="user_top">
+              <%= link_to room do %>
+                <span class="avatar inline_block">
+                  <%= image_tag room.image, class: "img-circle pic-middle" %>
                 <strong class="user_name"><%= "#{room.name} (#{room.users.length})" %></strong>
-                <% unless current_user.user_rooms.find_by(room_id: room.id) %>
-                  <%= link_to "Join", room_user_rooms_path(room), method: :post %>
-                <% end %>
-              </span>
-            <% end %>
-          </div>
+                  <% unless current_user.member_of?(room) %>
+                    <%= link_to "Join", room_user_rooms_path(room), method: :post %>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

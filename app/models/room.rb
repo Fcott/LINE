@@ -3,6 +3,8 @@ class Room < ApplicationRecord
   has_many :user_rooms, dependent: :destroy
   has_many :users, through: :user_rooms
   has_many :messages, dependent: :destroy
+  has_many :invitations, dependent: :destroy
+  has_many :invited_users, through: :invitations, class_name: User
 
   scope :direct_messages, -> { where(direct: true)  }
   scope :groups, -> { where(direct: false)  }
@@ -24,6 +26,10 @@ class Room < ApplicationRecord
   def members_except(user)
     members = self.users.reject { |e| e == user  }
     @user_names = members.map(&:username).join(", ")
+  end
+
+  def invited?(user)
+    invitations.find_by(user_id: user.id)
   end
 
 

@@ -9,6 +9,7 @@ class UserRoomsController < ApplicationController
 
   def destroy
     @user_room = @room.user_rooms.where(user_id: current_user.id).destroy_all
+    @invitation = @room.invitations.where(user_id: current_user.id).destroy_all
     redirect_to current_user
   end
 

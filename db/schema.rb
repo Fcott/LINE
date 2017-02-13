@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211021205) do
+ActiveRecord::Schema.define(version: 20170213025256) do
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_invitations_on_room_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id"
