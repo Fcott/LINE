@@ -53,7 +53,7 @@ class RoomsController < ApplicationController
   end
 
   def correct_user
-    redirect_to current_user unless current_user.user_rooms.find_by(room_id: @room.id)
+    redirect_to current_user unless current_user.member_of?(@room) 
   end
 
 end
