@@ -27,6 +27,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'font-awesome-sass'
 gem 'redis'
+gem 'rack-mini-profiler'
 
 group :production do
   gem 'pg'
