@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
 
   def show
     @user10 = @room.users.first(10)
-    @messages = @room.messages
+    @messages = @room.messages.recent_100
   end
 
   def create
@@ -53,7 +53,7 @@ class RoomsController < ApplicationController
   end
 
   def correct_user
-    redirect_to current_user unless current_user.member_of?(@room) 
+    redirect_to current_user unless current_user.member_of?(@room)
   end
 
 end
