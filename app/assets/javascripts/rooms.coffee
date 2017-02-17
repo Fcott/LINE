@@ -1,6 +1,4 @@
 $(document).on "turbolinks:load", ->
-  scroll_bottom()
-
   $("#new_message").on "keypress", (e) ->
     if e && e.keyCode == 13
       e.preventDefault()
@@ -15,7 +13,3 @@ $(document).on "turbolinks:load", ->
     App.rooms.send_message(room_id, content.val())
 
     content.val("")
-
-
-scroll_bottom = () ->
-  $("[data-behavior='messages']").scrollTop($("[data-behavior='messages']")[0].scrollHeight)
