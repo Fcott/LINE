@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update]
 
   def index
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.have_messages.desc_order
   end
 
   def new

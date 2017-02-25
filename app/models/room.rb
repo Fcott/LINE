@@ -8,6 +8,8 @@ class Room < ApplicationRecord
 
   scope :direct_messages, -> { where(direct: true)  }
   scope :groups, -> { where(direct: false)  }
+  scope :have_messages, -> { where.not(last_message: nil)  }
+  scope :desc_order, -> { order(last_message: :desc)  }
 
   def self.direct_message_for(users)
     user_ids = users.map(&:id).sort
