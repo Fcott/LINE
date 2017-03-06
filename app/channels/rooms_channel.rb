@@ -14,4 +14,10 @@ class RoomsChannel < ApplicationCable::Channel
     message = @room.messages.create(content: data['content'], user: message_user)
     MessageRelayJob.perform_later(message)
   end
+
+  def update(data)
+    user_room = message_user.user_rooms.find_by(room_id: data['room_id'])
+    user_room.update(last_read_at: Time.now)
+  end
+
 end

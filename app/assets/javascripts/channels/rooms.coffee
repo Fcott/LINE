@@ -8,8 +8,15 @@ App.rooms = App.cable.subscriptions.create "RoomsChannel",
   received: (data) ->
     active_room = $("[data-behavior='messages'][data-room-id='#{data.room_id}']")
     if active_room.length > 0
+
+      if document.hidden
+
+      else
+        App.rooms.update(data.room_id)
+
       active_room.append(data.message)
       scroll_bottom()
+
     else
       $("[data-behavior='room-name'][data-room-id='#{data.room_id}']").css("font-weight", "bold")
       $("[data-behavior='timestamp'][data-room-id='#{data.room_id}']").text(data.timestamp)
@@ -18,6 +25,8 @@ App.rooms = App.cable.subscriptions.create "RoomsChannel",
   send_message: (room_id, message) ->
     @perform "send_message", {room_id: room_id, content: message}
 
+  update: (room_id) ->
+    @perform 'update', {room_id: room_id}
 
   scroll_bottom = () ->
     $("[data-behavior='messages']").scrollTop($("[data-behavior='messages']")[0].scrollHeight)
