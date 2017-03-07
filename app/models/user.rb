@@ -32,4 +32,9 @@ class User < ApplicationRecord
      user_rooms.find_by(room_id: room.id)
    end
 
+   def unopen?(room)
+     user_room = self.user_rooms.find_by(room_id: room.id)
+     user_room.last_read_at < room.last_message
+   end
+
 end

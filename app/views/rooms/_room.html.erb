@@ -6,9 +6,10 @@
       </span>
       <div class="message_info inline-block table_cell">
         <% if room.direct? %>
-          <span class="name" data-behavior="room-name" data-room-id='<%= room.id %>'><%= room.members_except(current_user) %></span>
+          <% unopen = "unopen" if current_user.unopen?(room)  %>
+          <span class="name <%= unopen %>" data-behavior="room-name" data-room-id='<%= room.id %>'><%= room.members_except(current_user) %></span>
         <% else %>
-          <span class="name" data-behavior="room-name" data-room-id='<%= room.id %>'><%= room.name %></span>
+          <span class="name <%= unopen %>" data-behavior="room-name" data-room-id='<%= room.id %>'><%= room.name %></span>
         <% end %>
         <span class="timestamp" data-behavior="timestamp" data-room-id='<%= room.id %>'><%= room.messages.last.sent_time %></span>
         <span class="content" data-behavior="content" data-room-id='<%= room.id %>'><%= room.messages.last.content %></span>
